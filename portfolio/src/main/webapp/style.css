@@ -4,6 +4,12 @@
   width: 650px;
 }
 
-#greeting-container {
+h1 {
+  color: blue;
+  background-color: white;
+  border: 1px solid black;
+}
+
+#funfact-container {
   margin-top: 20px;
 }
