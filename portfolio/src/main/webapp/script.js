@@ -23,6 +23,6 @@ function addRandomFunFact() {
   const funFact = funFacts[Math.floor(Math.random() * funFacts.length)];
 
   // Add it to the page.
-  const funFactContainer = document.getElementById('funFact-container');
+  const funFactContainer = document.getElementById('fun-fact-container');
   funFactContainer.innerText = funFact;
 }
