@@ -15,14 +15,14 @@
 /**
  * Adds a random greeting to the page.
  */
-function addRandomGreeting() {
-  const funfacts =
+function addRandomFunFact() {
+  const funFacts =
       ['I love to dance', 'I\'m from New Jersey', 'I plan school events for over 1,000 students', 'I create my own jewelry'];
 
   // Pick a random fun fact.
-  const funfact = funfacts[Math.floor(Math.random() * funfacts.length)];
+  const funFact = funFacts[Math.floor(Math.random() * funFacts.length)];
 
   // Add it to the page.
-  const funfactContainer = document.getElementById('funfact-container');
-  funfactContainer.innerText = funfact;
+  const funFactContainer = document.getElementById('funFact-container');
+  funFactContainer.innerText = funFact;
 }
