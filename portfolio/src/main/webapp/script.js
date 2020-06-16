@@ -51,6 +51,42 @@ function addQuoteToDom(quote) {
 }
 
 /**
+ * Gets data by fetching JSON string from the server and prints to JS console.
+ */
+ function getDataJson() {
+    fetch('/data') //http request
+    .then(response => response.json()) //like a function that takes in response then does the following..
+    .then((messages) => { // multiple line function that takes in msg and does the following: 
+        console.log(messages);
+
+        // add hard-coded comments to the page
+        const msgListElement = document.getElementById('messages-container');
+        msgListElement.innerHTML = '';
+        for(i = 0; i < messages.length ; i++){
+            msgListElement.appendChild(
+            createListElement(messages[i]));
+        }
+        /** 
+        msgListElement.appendChild(
+            createListElement('Morning:' + messages[0]));
+        msgListElement.appendChild(
+            createListElement('Afternoon: ' + messages[1]));
+        msgListElement.appendChild(
+            createListElement('Evening: ' + messages[2]));
+        msgListElement.appendChild(
+            createListElement('Night: ' + messages[3]));
+        */
+    });
+ }
+
+ /** Creates an <li> element containing text. (makes bullet points?) */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}
+
+/**
  * Adds a random greeting to the page.
  */
 function addRandomFunFact() {
