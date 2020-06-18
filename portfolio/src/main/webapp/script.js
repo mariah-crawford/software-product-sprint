@@ -12,6 +12,44 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
+/**
+ * Fetches a quote from the server and adds it to the DOM.
+ */
+function getQuote() {
+  console.log('Fetching data.');
+
+  // The fetch() function returns a Promise because the request is asynchronous. (fetch the url the servlet is mapped to -look under servlets folder)
+  const responsePromise = fetch('/data');
+
+  // When the request is complete, pass the response into handleResponse().
+  responsePromise.then(handleResponse);
+}
+
+/**
+ * Handles response by converting it to text and passing the result to
+ * addQuoteToDom().
+ */
+function handleResponse(response) {
+  console.log('Handling the response.');
+  // the consol log prints out to log as code is executing - like print statements
+
+  // response.text() returns a Promise, because the response is a stream of
+  // content and not a simple variable.
+  const textPromise = response.text();
+
+  // When the response is converted to text, pass the result into the
+  // addQuoteToDom() function.
+  textPromise.then(addQuoteToDom);
+}
+/** Adds a quote to the DOM. */
+function addQuoteToDom(quote) {
+  console.log('Adding quote to dom: ' + quote);
+
+  const quoteContainer = document.getElementById('quote-container');
+  quoteContainer.innerText = quote;
+}
+
 /**
  * Adds a random greeting to the page.
  */
