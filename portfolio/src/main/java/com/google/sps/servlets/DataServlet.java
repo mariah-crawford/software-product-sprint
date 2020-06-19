@@ -49,23 +49,4 @@ public class DataServlet extends HttpServlet {
     response.getWriter().println(json);
   }
 
-  @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // Get the input from the form.
-    String name = request.getParameter("name-input");
-    String comment = request.getParameter("comment-input");
-    messages.add("\""+ comment + "\" \n - " + name);
-
-    // Create Entity for comment with name and comment properties
-    Entity commentEntity = new Entity("Comment");
-    commentEntity.setProperty("user_name", name);
-    commentEntity.setProperty("user_comment", comment);
-
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.put(commentEntity);
-
-    // Redirect back to the HTML page.
-    response.sendRedirect("/index.html");
-
-  }
 }
