@@ -38,6 +38,7 @@ public class DataServlet extends HttpServlet {
     messages.add("Good Evening!");
     messages.add("Good Night!");
   }
+  
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Convert the ArrayList to JSON
