@@ -34,6 +34,7 @@ public class DataServlet extends HttpServlet {
   public void init() {
     messages = new ArrayList<String>();
   }
+  
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Convert the ArrayList to JSON
@@ -43,10 +44,6 @@ public class DataServlet extends HttpServlet {
     // Send the JSON as the response
     response.setContentType("application/json;");
     response.getWriter().println(json);
-
-    // response.setContentType("text/html;");
-    //why doesnt the headers in html format work and only show up as chars?
-    //response.getWriter().println("Hello Mariah! How are you today?");
   }
 
   @Override
@@ -64,7 +61,6 @@ public class DataServlet extends HttpServlet {
     // response.getWriter().println("Thank you! Your comment has been submitted.");
 
   }
- 
 
   /**
    * Converts a ServerStats instance into a JSON string using manual String concatentation.
@@ -85,4 +81,5 @@ public class DataServlet extends HttpServlet {
     json += "}";
     return json;
   }
+
 }
