@@ -47,10 +47,6 @@ public class DataServlet extends HttpServlet {
     // Send the JSON as the response
     response.setContentType("application/json;");
     response.getWriter().println(json);
-
-    // response.setContentType("text/html;");
-    //why doesnt the headers in html format work and only show up as chars?
-    //response.getWriter().println("Hello Mariah! How are you today?");
   }
 
   @Override
@@ -60,6 +56,7 @@ public class DataServlet extends HttpServlet {
     String comment = request.getParameter("comment-input");
     messages.add("\""+ comment + "\" \n - " + name);
 
+    // Create entity with name and comment properties
     Entity commentEntity = new Entity("Comment");
     commentEntity.setProperty("user_name", name);
     commentEntity.setProperty("user_comment", comment);
@@ -69,31 +66,6 @@ public class DataServlet extends HttpServlet {
 
     // Redirect back to the HTML page.
     response.sendRedirect("/index.html");
-
-    // Respond with the result.
-    // response.setContentType("text/html;");
-    // response.getWriter().println("Thank you! Your comment has been submitted.");
-
   }
  
-
-  /**
-   * Converts a ServerStats instance into a JSON string using manual String concatentation.
-   */
-  private String convertToJson(ArrayList<String> messages) {
-    String json = "{";
-    json += "\"morning\": ";
-    json += "\"" + messages.get(0) + "\"";
-    json += ", ";
-    json += "\"afternoon\": ";
-    json += "\"" +  messages.get(1) + "\"";
-    json += ", ";
-    json += "\"evening\": ";
-    json += "\"" + messages.get(2) + "\"";
-    json += ", ";
-    json += "\"night\": ";
-    json += "\"" + messages.get(3) + "\"";
-    json += "}";
-    return json;
-  }
 }
