@@ -66,16 +66,6 @@ function addQuoteToDom(quote) {
             msgListElement.appendChild(
             createListElement(messages[i]));
         }
-        /** 
-        msgListElement.appendChild(
-            createListElement('Morning:' + messages[0]));
-        msgListElement.appendChild(
-            createListElement('Afternoon: ' + messages[1]));
-        msgListElement.appendChild(
-            createListElement('Evening: ' + messages[2]));
-        msgListElement.appendChild(
-            createListElement('Night: ' + messages[3]));
-        */
     });
  }
 
