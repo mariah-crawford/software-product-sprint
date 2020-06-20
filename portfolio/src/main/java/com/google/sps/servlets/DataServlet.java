@@ -18,6 +18,10 @@ import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
+
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,6 +44,20 @@ public class DataServlet extends HttpServlet {
   }
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Create a Query instance with the kind of entity to load
+    Query query = new Query("Comment").addSort("user_comment", SortDirection.DESCENDING);
+
+    // Gather the instances of entities in Datastore of kind "Comment"
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
+
+    // Iterate through the entities in Datastore to get their properties
+    for (Entity entity : results.asIterable()) {  
+        String name = (String) entity.getProperty("user_name");
+        String comment = (String) entity.getProperty("user_comment");
+        messages.add("\""+ comment + "\" \n - " + name);
+    } 
+    
     // Convert the ArrayList to JSON
     Gson gson = new Gson();
     String json = gson.toJson(messages);  
@@ -54,7 +72,6 @@ public class DataServlet extends HttpServlet {
     // Get the input from the form.
     String name = request.getParameter("name-input");
     String comment = request.getParameter("comment-input");
-    messages.add("\""+ comment + "\" \n - " + name);
 
     // Create entity with name and comment properties
     Entity commentEntity = new Entity("Comment");
@@ -67,5 +84,4 @@ public class DataServlet extends HttpServlet {
     // Redirect back to the HTML page.
     response.sendRedirect("/index.html");
   }
- 
 }
