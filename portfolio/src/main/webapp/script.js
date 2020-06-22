@@ -51,6 +51,21 @@ function addQuoteToDom(quote) {
 }
 
 /**
+ * Fetches blobstore url and shows the form on the DOM
+ */
+function fetchBlobstoreUrlAndShowForm() {
+  fetch('/blobstore-upload-url')
+      .then((response) => {
+        return response.text();
+      })
+      .then((imageUploadUrl) => {
+        const messageForm = document.getElementById('my-form');
+        messageForm.action = imageUploadUrl;
+        messageForm.classList.remove('hidden');
+      });
+}
+
+/**
  * Gets data by fetching JSON string from the server and prints to JS console.
  */
  function getDataJson() {
