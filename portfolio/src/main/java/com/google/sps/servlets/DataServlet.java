@@ -32,16 +32,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
+/** Servlet that handles comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-    // Create an arraylist object with hard-coded messages
-    private ArrayList<String> messages;
-
-  @Override
-  public void init() {
-    messages = new ArrayList<String>();
-  }
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Create a Query instance with the kind of entity to load
@@ -50,6 +43,9 @@ public class DataServlet extends HttpServlet {
     // Gather the instances of entities in Datastore of kind "Comment"
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
+
+    // Create an arraylist object of messages
+    ArrayList<String> messages = new ArrayList<String>();
 
     // Iterate through the entities in Datastore to get their properties
     for (Entity entity : results.asIterable()) {  

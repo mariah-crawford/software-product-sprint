@@ -33,6 +33,7 @@
 
       <p>View Comments Below:</p>
       <ul id="messages-container"></ul>
+
     </div>
 
     <div id="content2">
@@ -77,7 +78,7 @@
       <br/><br/>
 
       <p>Enter a comment</p>
-      <textarea name="comment-input"> Enter your comment here</textarea>
+      <textarea name="comment-input">Enter your comment here</textarea>
       <br/><br/>
 
       <p>Upload an image:</p>
