@@ -14,6 +14,10 @@
 
 package com.google.sps.servlets;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,33 +57,15 @@ public class DataServlet extends HttpServlet {
     String comment = request.getParameter("comment-input");
     messages.add("\""+ comment + "\" \n - " + name);
 
+    // Create entity with name and comment properties
+    Entity commentEntity = new Entity("Comment");
+    commentEntity.setProperty("user_name", name);
+    commentEntity.setProperty("user_comment", comment);
+
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(commentEntity);
+
     // Redirect back to the HTML page.
     response.sendRedirect("/index.html");
-
-    // Respond with the result.
-    // response.setContentType("text/html;");
-    // response.getWriter().println("Thank you! Your comment has been submitted.");
-
   }
-
-  /**
-   * Converts a ServerStats instance into a JSON string using manual String concatentation.
-   */
-  private String convertToJson(ArrayList<String> messages) {
-    String json = "{";
-    json += "\"morning\": ";
-    json += "\"" + messages.get(0) + "\"";
-    json += ", ";
-    json += "\"afternoon\": ";
-    json += "\"" +  messages.get(1) + "\"";
-    json += ", ";
-    json += "\"evening\": ";
-    json += "\"" + messages.get(2) + "\"";
-    json += ", ";
-    json += "\"night\": ";
-    json += "\"" + messages.get(3) + "\"";
-    json += "}";
-    return json;
-  }
-
 }
