@@ -38,6 +38,7 @@ public class DataServlet extends HttpServlet {
   public void init() {
     messages = new ArrayList<String>();
   }
+  
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Convert the ArrayList to JSON
@@ -67,5 +68,4 @@ public class DataServlet extends HttpServlet {
     // Redirect back to the HTML page.
     response.sendRedirect("/index.html");
   }
- 
 }
