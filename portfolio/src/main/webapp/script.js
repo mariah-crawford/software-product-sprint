@@ -63,8 +63,7 @@ function addQuoteToDom(quote) {
         const msgListElement = document.getElementById('messages-container');
         msgListElement.innerHTML = '';
         for(i = 0; i < messages.length ; i++){
-            msgListElement.appendChild(
-            createListElement(messages[i]));
+            msgListElement.appendChild(createListElement(messages[i]));
         }
     });
  }
