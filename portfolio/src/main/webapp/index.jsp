@@ -1,3 +1,11 @@
+<%-- The Java code in this JSP file runs on the server when the user navigates
+     to the homepage. This allows us to insert the Blobstore upload URL into the
+     form without building the HTML using print statements in a servlet. --%>
+<%@ page import="com.google.appengine.api.blobstore.BlobstoreService" %>
+<%@ page import="com.google.appengine.api.blobstore.BlobstoreServiceFactory" %>
+<% BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+   String uploadUrl = blobstoreService.createUploadUrl("/data"); %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,7 +30,7 @@
       <p>Click here to get a random fun fact about Mariah:</p>
       <button onclick="addRandomFunFact()">Generate Fun Fact</button>
       <div id="fun-fact-container"></div>
-      
+
       <p>View Comments Below:</p>
       <ul id="messages-container"></ul>
     </div>
@@ -60,7 +68,7 @@
 
     </div>
 
-    <form action="/data" method="POST">
+    <form method="POST" action="<%= uploadUrl %>">
 
       <h2>Add a Comment:</h2>
 
@@ -70,6 +78,10 @@
 
       <p>Enter a comment</p>
       <textarea name="comment-input"> Enter your comment here</textarea>
+      <br/><br/>
+
+      <p>Upload an image:</p>
+      <input type="file" name="image">
       <br/><br/>
 
       <input type="submit" />
