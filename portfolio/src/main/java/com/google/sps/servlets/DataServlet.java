@@ -33,10 +33,6 @@ public class DataServlet extends HttpServlet {
   @Override
   public void init() {
     messages = new ArrayList<String>();
-    messages.add("Good Morning!");
-    messages.add("Good Afternoon!");
-    messages.add("Good Evening!");
-    messages.add("Good Night!");
   }
   
   @Override
@@ -48,6 +44,42 @@ public class DataServlet extends HttpServlet {
     // Send the JSON as the response
     response.setContentType("application/json;");
     response.getWriter().println(json);
+  }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Get the input from the form.
+    String name = request.getParameter("name-input");
+    String comment = request.getParameter("comment-input");
+    messages.add("\""+ comment + "\" \n - " + name);
+
+    // Redirect back to the HTML page.
+    response.sendRedirect("/index.html");
+
+    // Respond with the result.
+    // response.setContentType("text/html;");
+    // response.getWriter().println("Thank you! Your comment has been submitted.");
+
+  }
+
+  /**
+   * Converts a ServerStats instance into a JSON string using manual String concatentation.
+   */
+  private String convertToJson(ArrayList<String> messages) {
+    String json = "{";
+    json += "\"morning\": ";
+    json += "\"" + messages.get(0) + "\"";
+    json += ", ";
+    json += "\"afternoon\": ";
+    json += "\"" +  messages.get(1) + "\"";
+    json += ", ";
+    json += "\"evening\": ";
+    json += "\"" + messages.get(2) + "\"";
+    json += ", ";
+    json += "\"night\": ";
+    json += "\"" + messages.get(3) + "\"";
+    json += "}";
+    return json;
   }
 
 }
