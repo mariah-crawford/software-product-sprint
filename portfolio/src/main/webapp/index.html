@@ -5,6 +5,14 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+
+    <style>
+      /* Form is hidden by default. */
+      .hidden {
+        display: none;
+      }
+    </style>
+
   </head>
   <body onload="getDataJson()">
     <div id="content1">
@@ -22,10 +30,30 @@
       <p>Click here to get a random fun fact about Mariah:</p>
       <button onclick="addRandomFunFact()">Generate Fun Fact</button>
       <div id="fun-fact-container"></div>
-      
-      <p>View Comments Below:</p>
-      <ul id="messages-container"></ul>
+        
+        <button onclick="fetchBlobstoreUrlAndShowForm()">Write a comment</button>*/
 
+        <form id="my-form" class="hidden" method="POST" enctype="multipart/form-data">
+
+            <h2>Add a Comment:</h2>
+
+            <p>Enter your name</p>
+            <textarea name="name-input">Your name here</textarea>
+            <br/><br/>
+
+            <p>Enter a comment</p>
+            <textarea name="comment-input">Enter your comment here</textarea>
+            <br/><br/>
+
+            <p>Upload an image:</p>
+            <input type="file" name="image">
+            <br/><br/>
+
+            <input type="submit" />
+        </form>
+
+        <p>View Comments Below:</p>
+        <ul id="messages-container"></ul>
     </div>
 
     <div id="content2">
@@ -60,20 +88,5 @@
       <img src= "images/disi_reunion.jpg" style="width:500px;height:300px;"/>
 
     </div>
-
-    <form action="/data" method="POST">
-
-      <h2>Add a Comment:</h2>
-
-      <p>Enter your name</p>
-      <textarea name="name-input">Your name here</textarea>
-      <br/><br/>
-
-      <p>Enter a comment</p>
-      <textarea name="comment-input">Enter your comment here</textarea>
-      <br/><br/>
-
-      <input type="submit" />
-    </form>
   </body>
 </html>
