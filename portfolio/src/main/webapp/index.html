@@ -15,18 +15,22 @@
 
   </head>
   <body>
-    <div id="content1">
-      <h1>Mariah Crawford's Portfolio</h1>
-      <img src="images/me.jpg" style="width:450px;height:300px;"/>
-      <p>A Princeton University student pursuing a Bachelor of Science in Engineering (BSE) 
-          in Computer Science and certificates in Entrepreneurship and Theater. Passionate 
-          about using her creativity to explore the intersections of technology and entrepreneurship. 
-          Exhibits strong computer programming skills in Java and Python languages and is a highly 
-          motivated individual and a quick learner. Demonstrates great leadership skills through her 
-          involvement as an officer in the diSiac Dance Company, Student Government (USG), and the 
-          Entrepreneurship Club.
-        </p>
+    <div id="content3">
 
+      <h1>Mariah Crawford's Portfolio</h1>
+
+        
+            <img src="images/me.jpg" style="width:450px;height:300px;"/>
+            <p>A Princeton University student pursuing a Bachelor of Science in Engineering (BSE) 
+                in Computer Science and certificates in Entrepreneurship and Theater. Passionate 
+                about using her creativity to explore the intersections of technology and entrepreneurship. 
+                Exhibits strong computer programming skills in Java and Python languages and is a highly 
+                motivated individual and a quick learner. Demonstrates great leadership skills through her 
+                involvement as an officer in the diSiac Dance Company, Student Government (USG), and the 
+                Entrepreneurship Club.
+            </p>
+        
+      
       <p>Click here to get a random fun fact about Mariah:</p>
       <button onclick="addRandomFunFact()">Generate Fun Fact</button>
       <div id="fun-fact-container"></div>
@@ -56,7 +60,7 @@
         <ul id="messages-container"></ul>
     </div>
 
-    <div id="content2">
+    <div id="content3">
       <h1>More Information</h1>
 
       <h2>Projects </h2>
@@ -66,27 +70,67 @@
       <p>Click <a href="http://linkedin.com/in/mariah-crawford-38b296179">here</a> to visit my LinkedIn Page</p>
       <p>Click <a href="https://github.com/mariah-crawford">here</a> to visit my GitHub Profile</p>
 
+      
       <h2>About Me: Hobbies and Interests</h2>
-      <p>I'm passionate about volunteering and offering guidance and leadership to younger students.
-          Through Student Government I am able to coordinate with other organizations to organize 
-          and participate in volunteer events. Also, I was a mentor to many incoming college freshmen as 
-          a leader in Princeton University's Freshmen Orienation Program, Community Action, in which we engaged
-          in community service while building a sense of community and belonging among the students.
-      </p>
-      <img src="images/volunteer.jpg" style="width:500px;height:300px;"/>
-      <img src="images/ca.jpg" style="width:500px;height:300px;"/>
+    <div class="wrapper">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="images/volunteer.jpg" alt="Volunteer" style="width:500px;height:300px;">
+            </div>
+            <div class="flip-card-back">
+                <h1>Volunteering</h1>
+                <p>I'm passionate about volunteering and offering guidance and leadership to younger students.
+                    Through Student Government I am able to coordinate with other organizations to organize 
+                    and participate in volunteer events.</p>
+            </div>
+        </div>
+    </div>
 
-      <p> Another interest of mine is dancing. I can often be found in the dance studio, working 
-            on new choregraphy or practicing for the upcoming dance performance. I always knew I wanted
-            to try a new activity in college, so I decided to audition for a dance company despite having had no 
-            prior dance experience. However, I was accepted into the company and continued to grow as a 
-            leader and dancer over the years. For example, when I was a freshman, former officers encouraged
-            me to run for an officer position and I was granted opportunities for growth, 
-            such as the chance to co-choreograph an audition piece and choreograph workshops.
-      </p>
-      <img src= "images/disi.png" style="width:500px;height:300px;"/>
-      <img src= "images/disi_reunion.jpg" style="width:500px;height:300px;"/>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="images/ca.jpg" alt="CA" style="width:500px;height:300px;">
+            </div>
+            <div class="flip-card-back">
+                <h1>Community Action Leader</h1>
+                <p>I was a mentor to many incoming college freshmen as 
+                    a leader in Princeton University's Freshmen Orienation Program, Community Action, in which we engaged
+                    in community service while building a sense of community and belonging among the students.</p>
+            </div>
+        </div>
+    </div>
 
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="images/disi.png" alt="Dance pt 1" style="width:500px;height:300px;">
+            </div>
+            <div class="flip-card-back">
+                <h1>diSiac Dance Company</h1>
+                <p>Another interest of mine is dancing. I can often be found in the dance studio, working 
+                    on new choregraphy or practicing for the upcoming dance performance. I always knew I wanted
+                    to try a new activity in college, so I decided to audition for a dance company despite having had no 
+                    prior dance experience. </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="images/disi_reunion.jpg" alt="Dance pt 2" style="width:500px;height:300px;">
+            </div>
+            <div class="flip-card-back">
+                <h1>diSiac Dance Company</h1>
+                <p>I was accepted into the company and continued to grow as a 
+                    leader and dancer over the years. For example, when I was a freshman, former officers encouraged
+                    me to run for an officer position and I was granted opportunities for growth, 
+                    such as the chance to co-choreograph an audition piece and choreograph workshops. </p>
+            </div>
+        </div>
+    </div>
+    </div>
     </div>
   </body>
 </html>
