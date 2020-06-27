@@ -79,7 +79,10 @@ function fetchBlobstoreUrlAndShowForm() {
         const msgListElement = document.getElementById('messages-container');
         msgListElement.innerHTML = '';
         for(i = 0; i < messages.length ; i++){
-            msgListElement.appendChild(createListElement(messages[i]));
+            // Split the comment and image url into two Strings 
+            var comm = messages[i].split("img:");
+            msgListElement.appendChild(createListElement(comm[0]));
+            msgListElement.appendChild(createImageElement(comm[1]));
         }
     });
  }
@@ -89,6 +92,13 @@ function createListElement(text) {
   const liElement = document.createElement('li');
   liElement.innerText = text;
   return liElement;
+}
+
+ /** Creates an <img> element to display image.*/
+function createImageElement(imageUrl) {
+  const imgElement = document.createElement('img');
+  imgElement.setAttribute("src", imageUrl);
+  return imgElement;
 }
 
 /**
