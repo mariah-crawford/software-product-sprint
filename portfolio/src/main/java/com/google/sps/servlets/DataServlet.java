@@ -18,6 +18,10 @@ import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
+
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,19 +32,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
+/** Servlet that handles comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-    // Create an arraylist object with hard-coded messages
-    private ArrayList<String> messages;
-
-  @Override
-  public void init() {
-    messages = new ArrayList<String>();
-  }
-  
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Create a Query instance with the kind of entity to load
+    Query query = new Query("Comment").addSort("user_comment", SortDirection.DESCENDING);
+
+    // Gather the instances of entities in Datastore of kind "Comment"
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
+
+    // Create an arraylist object of messages
+    ArrayList<String> messages = new ArrayList<String>();
+
+    // Iterate through the entities in Datastore to get their properties
+    for (Entity entity : results.asIterable()) {  
+        String name = (String) entity.getProperty("user_name");
+        String comment = (String) entity.getProperty("user_comment");
+        messages.add("\""+ comment + "\" \n - " + name);
+    } 
+    
     // Convert the ArrayList to JSON
     Gson gson = new Gson();
     String json = gson.toJson(messages);  
@@ -55,7 +68,6 @@ public class DataServlet extends HttpServlet {
     // Get the input from the form.
     String name = request.getParameter("name-input");
     String comment = request.getParameter("comment-input");
-    messages.add("\""+ comment + "\" \n - " + name);
 
     // Create entity with name and comment properties
     Entity commentEntity = new Entity("Comment");
