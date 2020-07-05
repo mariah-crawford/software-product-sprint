@@ -6,21 +6,75 @@ h1 {
   margin-top: 20px;
 }
 
-/* BLOG-STYLE PAGE LAYOUT */
-
-/* Add a gray background color with some padding */
-body {
-  font-family: Arial;
-  padding: 20px;
-  background: #37ACF3;
+/* ZIG ZAG PAGE LAYOUT */
+* {
+  box-sizing:border-box;
 }
 
-/* Header */
-.header {
-  padding: 30px;
-  font-size: 40px;
-  text-align: center;
-  background: white;
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  padding: 64px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both
+}
+
+.column-66 {
+  float: left;
+  width: 66.66666%;
+  padding: 20px;
+}
+
+.column-33 {
+  float: left;
+  width: 33.33333%;
+  padding: 20px;
+}
+
+.large-font {
+  font-size: 48px;
+}
+
+.xlarge-font {
+  font-size: 64px
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: rgb(122, 17, 17);
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .column-66,
+  .column-33 {
+    width: 100%;
+    text-align: center;
+  }
+  img {
+    margin: auto;
+  }
+}
+.wrapper3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
 }
 
 /* Add a card effect for articles */
@@ -30,26 +84,6 @@ body {
   margin-top: 20px;
 }
 
-/* Create two unequal columns that floats next to each other */
-.leftcolumn {
-    flex: 65%;
-}
-.rightcolumn {
-    flex: 35%;
-}
-.row {
-  display: flex;
-}
-
-/* Responsive layout - when the screen is less than 800px wide, 
-make the two columns stack on top of each other instead of 
-next to each other */
-@media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn {
-    width: 100%;
-    padding: 0;
-  }
-}
 
 /*FLIP CARD GRID LAYOUT */
 /* Wrapper to place divs in a grid*/
@@ -102,7 +136,7 @@ next to each other */
 
 /* Style the back side */
 .flip-card-back {
-  background-color: #37ACF3;
+  background-color: rgb(122, 17, 17);
   color: white;
   transform: rotateY(180deg);
 }
