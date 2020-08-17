@@ -60,9 +60,10 @@ function fetchBlobstoreUrlAndShowForm() {
       })
       .then((imageUploadUrl) => {
         const messageForm = document.getElementById('my-form');
+        console.log(imageUploadUrl);
         messageForm.action = imageUploadUrl;
         messageForm.classList.remove('hidden');
-      });
+    });
 }
 
 /**
