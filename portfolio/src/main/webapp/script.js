@@ -79,10 +79,9 @@ function fetchBlobstoreUrlAndShowForm() {
         const msgListElement = document.getElementById('messages-container');
         msgListElement.innerHTML = '';
         for(i = 0; i < messages.length ; i++){
-            // Split the comment and image url into two Strings 
-            var comm = messages[i].split("img:");
-            msgListElement.appendChild(createListElement(comm[0]));
-            msgListElement.appendChild(createImageElement(comm[1]));
+            // Add the message containing name comment and image to the page 
+            msgListElement.appendChild(createListElement(messages[i].name + messages[i].comment));
+            msgListElement.appendChild(createImageElement(messages[i].img));
         }
     });
  }
