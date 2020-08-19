@@ -80,7 +80,7 @@ function fetchBlobstoreUrlAndShowForm() {
         msgListElement.innerHTML = '';
         for(i = 0; i < messages.length ; i++){
             // Add the message containing name comment and image to the page 
-            msgListElement.appendChild(createListElement(messages[i].name + messages[i].comment));
+            msgListElement.appendChild(createListElement(messages[i].comment + "\n -" + messages[i].name));
             msgListElement.appendChild(createImageElement(messages[i].img));
         }
     });
