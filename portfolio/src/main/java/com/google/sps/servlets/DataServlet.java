@@ -44,6 +44,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.sps.data.Messages;
+
 /** Servlet that handles comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
@@ -57,23 +59,24 @@ public class DataServlet extends HttpServlet {
     PreparedQuery results = datastore.prepare(query);
 
     // Create an arraylist object of messages
-    ArrayList<String> messages = new ArrayList<String>();
+    ArrayList<Messages> messages = new ArrayList<Messages>();
 
     // Iterate through the entities in Datastore to get their properties
     for (Entity entity : results.asIterable()) {  
         String name = (String) entity.getProperty("user_name");
         String comment = (String) entity.getProperty("user_comment");
         String image = (String) entity.getProperty("user_img");
-        messages.add("\""+ comment + "\" \n - " + name + " img: " +image);
+        Messages msg = new Messages(name, comment, image);
+        messages.add(msg);
     } 
     
     // Convert the ArrayList to JSON
     Gson gson = new Gson();
-    String json = gson.toJson(messages);  
+    // String json = gson.toJson(messages);  
     
     // Send the JSON as the response
     response.setContentType("application/json;");
-    response.getWriter().println(json);
+    response.getWriter().println(gson.toJson(messages));
   }
 
   @Override
@@ -125,9 +128,9 @@ public class DataServlet extends HttpServlet {
     String url = imagesService.getServingUrl(options);
 
     // The URL is relative to the current domain.
-    if(url.startsWith("https://8080-dot-12521393-dot-devshell.appspot.com/")){
-      url = url.replace("https://8080-dot-12521393-dot-devshell.appspot.com/", "/");
-    }
+    //if(url.startsWith("https://8080-dot-12521393-dot-devshell.appspot.com/")){
+    //  url = url.replace("https://8080-dot-12521393-dot-devshell.appspot.com/", "/");
+    //}
     return url;
   }
 }
