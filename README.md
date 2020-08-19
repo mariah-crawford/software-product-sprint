@@ -1,6 +1,7 @@
 # Google Software Product Sprint
 
 This repo contains Mariah Crawford's portfolio and SPS projects.
+Feel free to visit her personal website/ portfolio here: https://mcrawford-sps-summer20.uc.r.appspot.com/
 
 To get started:
 
