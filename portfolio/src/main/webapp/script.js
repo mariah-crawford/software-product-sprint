@@ -97,6 +97,7 @@ function createListElement(text) {
 function createImageElement(imageUrl) {
   const imgElement = document.createElement('img');
   imgElement.setAttribute("src", imageUrl);
+  imgElement.setAttribute("style", "width:200px;height:100px;");
   return imgElement;
 }
 
