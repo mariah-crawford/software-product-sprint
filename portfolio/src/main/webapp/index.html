@@ -14,7 +14,7 @@
     </style>
 
   </head>
-  <body onload="getDataJson()">
+  <body>
     <div id="content1">
       <h1>Mariah Crawford's Portfolio</h1>
       <img src="images/me.jpg" style="width:450px;height:300px;"/>
@@ -31,7 +31,7 @@
       <button onclick="addRandomFunFact()">Generate Fun Fact</button>
       <div id="fun-fact-container"></div>
         
-        <button onclick="fetchBlobstoreUrlAndShowForm()">Write a comment</button>
+      <button onclick="fetchBlobstoreUrlAndShowForm()">Write a comment</button>
 
         <form id="my-form" class="hidden" method="POST" enctype="multipart/form-data">
 
@@ -52,7 +52,7 @@
             <input type="submit" />
         </form>
 
-        <p>View Comments Below:</p>
+        <button onclick="getDataJson()">View comments</button>
         <ul id="messages-container"></ul>
     </div>
 

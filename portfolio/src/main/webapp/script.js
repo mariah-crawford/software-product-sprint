@@ -79,7 +79,9 @@ function fetchBlobstoreUrlAndShowForm() {
         const msgListElement = document.getElementById('messages-container');
         msgListElement.innerHTML = '';
         for(i = 0; i < messages.length ; i++){
-            msgListElement.appendChild(createListElement(messages[i]));
+            // Add the message containing name comment and image to the page 
+            msgListElement.appendChild(createListElement(messages[i].comment + "\n -" + messages[i].name));
+            msgListElement.appendChild(createImageElement(messages[i].img));
         }
     });
  }
@@ -89,6 +91,13 @@ function createListElement(text) {
   const liElement = document.createElement('li');
   liElement.innerText = text;
   return liElement;
+}
+
+ /** Creates an <img> element to display image.*/
+function createImageElement(imageUrl) {
+  const imgElement = document.createElement('img');
+  imgElement.setAttribute("src", imageUrl);
+  return imgElement;
 }
 
 /**
