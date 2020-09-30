@@ -45,7 +45,7 @@
         <version>2.2.0</version>
         <configuration>
           <!-- TODO: set project ID. -->
-          <deploy.projectId>mcrawford-sps-summer20</deploy.projectId>
+          <deploy.projectId>mariah-crawford-portfolio</deploy.projectId>
           <deploy.version>1</deploy.version>
         </configuration>
       </plugin>
