@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sidebarstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="script.js"></script>
 
     <style>
@@ -15,16 +17,48 @@
 
   </head>
   <body>
+    <div class="sidenav">
+        <div class="overlay">
+            <div class="me">
+                <img src="images/me.jpg" class= "profile_pic" style="width:100%;height:100%;"/>
+            </div>
+            <div class="brief_bio">
+                <h2>Mariah Crawford </h2>
+                <p>Software Engineer<br/>
+                    Computer Science Major<br/>
+                    Princeton University<br/><br/>
+                    Bachelor of Science<br/>
+                    in Engineering (B.S.E.)<br/>
+                    Class of 2022
+                </p>
+
+                <br></br>
+                <div class="wrapper_icons">
+                    <a href="http://linkedin.com/in/mariah-crawford-38b296179"><i class="fa fa-linkedin"></i></a>
+                    <a href="https://github.com/mariah-crawford"><i class="fa fa-github"></i></a>
+                    <a href="mailto:mc63@princeton.edu"><i class="fa fa-envelope"></i></a>
+                </div>
+                <br></br>
+                
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#hobbies">Hobbies</a>
+                <a href="#comments">Comments</a>
+            </div>
+        </div>
+    </div>
+
+<div class="main">
     <div class="header">
         <h1>Mariah Crawford's Portfolio</h1>
     </div>
     <div class="wrapper">
         <div class="leftcolumn">
             <div class="card">
-                <h2>About Me </h2>
+                <h2><a id="about">About Me</a></h2>
                 <div class="row">
                     <div class="leftcolumn">
-                        <img src="images/me.jpg" style="width:450px;height:300px;"/>
                     </div>
                     <div class="rightcolumn">
                         <p>A Princeton University student pursuing a Bachelor of Science in Engineering (BSE) 
@@ -39,7 +73,7 @@
                 </div>
             </div>
             <div class="card">
-                <h2>Hobbies and Interests</h2>
+                <h2><a id="hobbies">Hobbies and Interests</a></h2>
                 <div class="wrapper">
                     <div class="flip-card">
                         <div class="flip-card-inner">
@@ -63,7 +97,7 @@
                             <div class="flip-card-back">
                                 <h2>Community Action Leader</h2>
                                 <p>I was a mentor to many incoming college freshmen as 
-                                    a leader in Princeton University's Freshmen Orienation Program, Community Action, in which we engaged
+                                    a leader in Princeton University's Freshmen Orientation Program, Community Action, in which we engaged
                                     in community service while building a sense of community and belonging among the students.</p>
                             </div>
                         </div>
@@ -108,7 +142,7 @@
                 <button onclick="addRandomFunFact()">Generate Fun Fact</button>
                 <div id="fun-fact-container"></div>
 
-                <h2>Projects</h2>
+                <h2><a id="projects">Projects</a></h2>
                 <p>Software Product Print Portfolio Project, Sonorines Research Project</p>
 
                 <h2>External Links</h2>
@@ -120,7 +154,7 @@
                         
                 <form id="my-form" class="hidden" method="POST" enctype="multipart/form-data">
 
-                    <h2>Add a Comment:</h2>
+                    <h2><a id="comments">Add a Comment:</a></h2>
 
                     <p>Enter your name</p>
                     <textarea name="name-input">Your name here</textarea>
@@ -141,6 +175,7 @@
                 <ul id="messages-container"></ul>
             </div>
         </div>
+    </div>
     </div>
   </body>
 </html>
